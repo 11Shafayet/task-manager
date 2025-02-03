@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Protest+Revolution&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme: #ff9771;
+}
+
+/* re usable tailwind styles */
+@layer components {
+  .sidebar-button {
+    @apply flex items-center py-5 px-11 border-b hover:bg-white hover:bg-opacity-10 duration-300 w-full;
+  }
+  .table-header {
+    @apply min-w-28 max-w-[150px] px-4 py-3 text-left font-semibold text-white border border-gray-600;
+  }
+  .table-body {
+    @apply max-w-[150px] truncate px-4 py-3 text-white border border-gray-600 capitalize;
+  }
+  .input-field {
+    @apply mt-1 block w-full rounded-md border border-transparent bg-gray-800 px-4 py-2.5 shadow-sm focus:border focus:border-theme focus:outline-none;
+  }
+  .input-label {
+    @apply block text-sm font-medium text-white;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #1e293b;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1e293b; /* slate-800 */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #475569; /* slate-600 */
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #64748b; /* slate-500 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+}
+
+/* shadow */
+.shadow-light {
+  box-shadow: 0px 0px 11px rgba(255, 255, 255, 0.08);
+}
+
+.random_text_color {
+  animation: random_text_color 10s linear infinite;
+}
+@keyframes random_text_color {
+  0% {
+    color: #ef4444;
+  }
+  20% {
+    color: #22d3ee;
+  }
+  40% {
+    color: #db2777;
+  }
+  60% {
+    color: #f97316;
+  }
+  80% {
+    color: #d946ef;
+  }
+  100% {
+    color: #4ade80;
+  }
+}
