@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
+import { useStore } from '../stores/useStore';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const SignIn = () => {
     password: '',
   });
   const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext);
+  const { toggleLogin } = useStore();
 
   const loginMutation = useMutation({
     mutationFn: async (userData) => {
@@ -33,7 +33,7 @@ const SignIn = () => {
     onSuccess: (response) => {
       const { user, token } = response.data;
 
-      setUser(user);
+      toggleLogin();
       localStorage.setItem('token', token);
       localStorage.setItem('userData', JSON.stringify(user));
 

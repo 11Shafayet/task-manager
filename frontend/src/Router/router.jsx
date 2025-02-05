@@ -6,10 +6,9 @@ import PrivateRoute from './PrivateRoute';
 
 // Import all pages from pages directory
 import SignIn from '../pages/SignIn';
-import Dashboard from '../pages/Dashboard';
-import Patient from '../pages/Patient';
-import Staffs from '../pages/Staffs';
-import Delivery from '../pages/Delivery';
+import Boards from '../pages/Boards';
+import Members from '../pages/Members';
+import Timeline from '../pages/Timeline';
 
 const router = createBrowserRouter([
   {
@@ -17,34 +16,26 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: '/',
+        path: '/boards',
         element: (
           <PrivateRoute>
-            <Dashboard />
+            <Boards />
           </PrivateRoute>
         ),
       },
       {
-        path: '/patients-details',
+        path: '/members',
         element: (
           <PrivateRoute>
-            <Patient />
+            <Members />
           </PrivateRoute>
         ),
       },
       {
-        path: '/staffs-details',
+        path: '/timeline',
         element: (
           <PrivateRoute>
-            <Staffs />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: '/delivery-details',
-        element: (
-          <PrivateRoute>
-            <Delivery />
+            <Timeline />
           </PrivateRoute>
         ),
       },

@@ -1,27 +1,12 @@
-import { useContext } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
+import { useStore } from '../stores/useStore';
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
+  const isLogged = useStore((state) => state.isLogged);
   const location = useLocation();
 
-  // Show loading state while checking authentication
-  if (loading) {
-    return (
-      <div className="h-screen flex justify-center items-center">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
-  }
-
-  // Redirect to sign-in if not authenticated
-  if (!user) {
-    return <Navigate to="/sign-in" state={{ from: location }} replace />;
-  }
-
-  // Render protected content if authenticated
-  return children;
+  return isLogged ? children : <Navigate to="/sign-in" state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;
