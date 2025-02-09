@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const navbarData = [
   {
     title: 'Boards',
-    link: '/boards',
+    link: '/',
   },
   {
     title: 'Members',

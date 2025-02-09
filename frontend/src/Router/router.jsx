@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: '/boards',
+        path: '/',
         element: (
           <PrivateRoute>
             <Boards />
